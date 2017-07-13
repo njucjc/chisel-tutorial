@@ -3,7 +3,7 @@ package examples
 
 import chisel3._
 
-class LogShifter extends Module {
+class LogShifter extends ImplicitInvalidateModule {
   val io = IO(new Bundle {
     val in    = Input(UInt(16.W))
     val shamt = Input(UInt(4.W))
