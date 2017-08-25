@@ -15,8 +15,9 @@ class Accumulator extends Module {
   })
 
   // Implement below ----------
-
-  io.out := 0.U
+  val acc = RegInit(0.U(8.W))
+  acc := acc + io.in
+  io.out := acc
 
   // Implement above ----------
 }
