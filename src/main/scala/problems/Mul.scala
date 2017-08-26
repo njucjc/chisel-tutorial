@@ -19,6 +19,10 @@ class Mul extends Module {
   // Calculate io.z = io.x * io.y by generating a table of values for mulsValues
 
   // Implement below ----------
-
+  for(i <- 0 until (1 << 4))
+	  for(j <- 0 until (1 << 4))
+		  mulsValues +=(i * j).U(8.W)
+  val table = Vec(mulsValues)
+  io.z := table(io.x << 4.U | io.y)
   // Implement above ----------
 }
