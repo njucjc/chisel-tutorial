@@ -18,8 +18,10 @@ class VecShiftRegisterSimple extends Module {
   val delays = RegInit(Vec(initValues))
 
   // Implement below ----------
-
-  io.out := 0.U
-
+  delays(0) := io.in
+  for(i <- 3 until 0 by -1) {
+    delays(i) := delays(i - 1)
+  }
+  io.out := delays(3)
   // Implement above ----------
 }
